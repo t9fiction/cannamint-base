@@ -118,7 +118,7 @@ export default function Hero() {
           contract: contractFactory,
           method: "function deployToken(string name, string symbol, uint256 totalSupply) payable",
           params: [tokenData.name, tokenData.symbol, tSupply],
-          value: ethers.parseEther("0.003"), // 0.03 ETH
+          value: ethers.parseEther("0.03"), // 0.03 ETH
         });
 
         console.log("Sending transaction:", transaction);
