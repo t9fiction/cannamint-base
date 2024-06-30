@@ -17,21 +17,6 @@ const CHAIN = chainUsed;
 export const Login = () => {
     const [hovered, setHovered] = useState(false);
 
-    const buttonStyle = {
-        borderRadius: "40px",
-        background: "linear-gradient(to right, #8BC34A, #004D40)",
-        color: "white",
-        width: "200px",
-        margin: "20px",
-        paddingTop: "12px",
-        paddingBottom: "12px",
-        paddingLeft: "24px",
-        paddingRight: "24px",
-        border: "1px solid rgb(0, 255, 115)",
-        cursor: "pointer",
-        transition: "background-color 0.3s, color 0.3s"
-    };
-
     return (
         <>
             {/* <div >
