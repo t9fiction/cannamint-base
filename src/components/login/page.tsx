@@ -15,33 +15,9 @@ const wallets = [
 const CHAIN = chainUsed;
 
 export const Login = () => {
-    const [hovered, setHovered] = useState(false);
 
     return (
         <>
-            {/* <div >
-                <w3m-button />
-            </div> */}
-            {/* {
-                isConnected ? <button onClick={() => disconnect()} style={{
-                    ...buttonStyle,
-                    backgroundColor: hovered ? "#004D40" : "#8BC34A",
-                    color: hovered ? "#8BC34A" : "white"
-                }}
-                >Disconnect</button>
-                    :
-                    <button
-                        onClick={() => open()}
-                        style={{
-                            ...buttonStyle,
-                            backgroundColor: hovered ? "#004D40" : "#8BC34A",
-                            color: hovered ? "#8BC34A" : "white"
-                        }}
-                    >
-                        Connect Now
-                    </button>
-            } */}
-
 
             <ConnectButton
                 client={client}

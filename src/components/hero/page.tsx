@@ -12,6 +12,8 @@ import { ethers } from 'ethers';
 import { chainUsed, factoryContractABI, factoryContractADDRESS } from '@/utils/factoryContract/page';
 import Swal from 'sweetalert2';
 
+const baseURL = process.env.NEXT_PUBLIC_ALCHEMY_BASEURL_ID
+
 const contractFactory = getContract({
   client,
   chain: chainUsed,
@@ -28,7 +30,7 @@ export default function Hero() {
   const tokenSymbolRef = useRef<HTMLInputElement>(null);
   const tokenSupplyRef = useRef<HTMLInputElement>(null);
 
-  const provider = new ethers.JsonRpcProvider(`https://sepolia.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA_ID}`);
+  const provider = new ethers.JsonRpcProvider(baseURL);
   const contractEthers = new ethers.Contract(factoryContractADDRESS, factoryContractABI, provider);
 
   const [tokenData, setTokenData] = useState({
@@ -116,7 +118,7 @@ export default function Hero() {
           contract: contractFactory,
           method: "function deployToken(string name, string symbol, uint256 totalSupply) payable",
           params: [tokenData.name, tokenData.symbol, tSupply],
-          value: ethers.parseEther("0.03"), // 0.03 ETH
+          value: ethers.parseEther("0.003"), // 0.03 ETH
         });
 
         console.log("Sending transaction:", transaction);
@@ -129,7 +131,7 @@ export default function Hero() {
             console.error("Transaction error:", error);
             Swal.fire({
               title: 'Error!',
-              text: 'Check for any missing field or wrong input',
+              text: 'Check if you have enough Ethers',
               icon: 'error',
               confirmButtonText: 'OK',
               customClass: {
