@@ -221,7 +221,7 @@ export default function Hero() {
       <div className={styles.about}>
         <h1 className={styles.title}>CannaMint</h1>
         <p className={styles.subtitle}>
-          The <Image src="/img/base-space.png" alt="Icon" className={styles.icon} width={40} height={30} /> Way to Launch
+          The <img src="/img/base-space.png" alt="Icon" className={styles.icon} width={40} height={30} /> Way to Launch
         </p>
         <p className={styles.textinfo}>Create your own Base ERC-20 contract with no code in ten seconds!</p>
         <Login />
