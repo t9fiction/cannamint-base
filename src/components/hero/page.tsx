@@ -306,8 +306,8 @@ export default function Hero() {
       {contractAddress && (
         <p className={`${styles.textinfo}`}>
           Contract deployed @
-          <a href={`https://sepolia.basescan.org/address/${contractAddress}`} target="_blank" rel="noopener noreferrer">
-            {`https://sepolia.basescan.org/address/${contractAddress}`}
+          <a href={`https://basescan.org/address/${contractAddress}`} target="_blank" rel="noopener noreferrer">
+            {`https://basescan.org/address/${contractAddress}`}
           </a>
         </p>
       )}
