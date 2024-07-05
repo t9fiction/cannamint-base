@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import Image from 'next/image';
 import './style.css';
 
 const Page = () => {
@@ -34,8 +35,8 @@ const Page = () => {
 
                     <section id="connecting-wallet">
                         <h2>Connecting Wallet</h2>
-                        <p>CannaMint offers unparalleled wallet compatibility for the Base network which enables as many people as possible to launch their own token. Our connect wallet modal supports over 350 different wallets, ensuring that you can use your preferred wallet to interact with our platform. Whether you&apos;re using a popular wallet or a more niche option, CannaMint has you covered. Simply click the "Connect Wallet" button to access our extensive list of supported wallets and get started with your token creation journey.</p>
-                        <img src="/img/wallets.JPG" alt="CannaMint Wallet Connect Interface showing over 350 compatible wallets" className="full-width-image" />
+                        <p>CannaMint offers unparalleled wallet compatibility for the Base network which enables as many people as possible to launch their own token. Our connect wallet modal supports over 350 different wallets, ensuring that you can use your preferred wallet to interact with our platform. Whether you&apos;re using a popular wallet or a more niche option, CannaMint has you covered. Simply click the &quot;Connect Wallet&quot; button to access our extensive list of supported wallets and get started with your token creation journey.</p>
+                        <Image src="/img/wallets.JPG" alt="CannaMint Wallet Connect Interface showing over 350 compatible wallets" width={500} height={300} className="full-width-image" />
                     </section>
 
                     <section id="create-token">
@@ -46,7 +47,7 @@ const Page = () => {
                     <section id="token-parameters">
                         <h2>Token Parameters</h2>
                         <p>Customize your Base ERC-20 token with a wide range of parameters. Set your token&apos;s name, symbol, and total supply. Don&apos;t worry about the decimals, we got them hardcoded. Implement advanced features like transaction fees and automated liquidity generation (coming soon). Our platform provides clear explanations for each parameter, helping you make informed decisions about your token&apos;s functionality.</p>
-                        <img src="/img/info.JPG" alt="CannaMint Wallet Connect Interface showing over 350 compatible wallets" className="full-width-image" />
+                        <Image src="/img/info.JPG" alt="CannaMint Wallet Connect Interface showing over 350 compatible wallets" width={500} height={300} className="full-width-image" />
                     </section>
 
                     <section id="token-management">
@@ -104,7 +105,7 @@ const Page = () => {
                 </main>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Page
+export default Page;
