@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
 import { Login } from "../login/page";
 import styles from "../../app/page.module.css";
 import './style.css';
@@ -323,7 +322,9 @@ export default function Hero() {
         </p>
       )}
 
-      <p className={`${styles.textinfo2}`}>Total Deployment Fee: 0.03 Base Eth + 1% supply fee. <br />Read the docs to learn more</p>
+      <p className={`${styles.textinfo2}`}>
+        Total Deployment Fee: 0.03 Base Eth + 1% supply fee. <br />Read the <a href="/docs" className={styles.docsLink}>docs</a> to learn more
+      </p>
     </main>
   );
 }

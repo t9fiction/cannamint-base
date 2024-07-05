@@ -415,6 +415,10 @@
   cursor: not-allowed;
 }
 
+.docsLink {
+  text-decoration: underline;
+  text-underline-offset: 1px; /* Adjust the offset value as needed */
+}
 
 @keyframes pulsate2 {
   0% {
