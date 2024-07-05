@@ -1,5 +1,6 @@
 import React from 'react'
 import './style.css';
+import Image from 'next/image';
 
 const page = () => {
     return (
@@ -36,7 +37,7 @@ const page = () => {
                         connect wallet modal supports over 350 different wallets, ensuring that you can use your
                         preferred wallet to interact with our platform. Whether you're using a popular wallet or a more niche option, CannaMint has you covered. Simply
                         click the "Connect Wallet" button to access our extensive list of supported wallets and get started with your token creation journey.</p>
-                    <img src="/img/wallets.JPG" alt="CannaMint Wallet Connect Interface showing over 350 compatible wallets" className="full-width-image" />
+                    <Image src="/img/wallets.JPG" alt="CannaMint Wallet Connect Interface showing over 350 compatible wallets" className="full-width-image" />
                 </section>
 
                 <section id="create-token">
@@ -51,7 +52,7 @@ const page = () => {
                     <p>Customize your Base ERC-20 token with a wide range of parameters. Set your token's name, symbol, and total supply. Don't worry about the decimals, we got them hardcoded.
                         Implement advanced features like transaction fees and automated liquidity generation (coming soon). Our platform provides clear explanations for each parameter,
                         helping you make informed decisions about your token's functionality.</p>
-                    <img src="/img/info.JPG" alt="CannaMint Wallet Connect Interface showing over 350 compatible wallets" className="full-width-image" />
+                    <Image src="/img/info.JPG" alt="CannaMint Wallet Connect Interface showing over 350 compatible wallets" className="full-width-image" />
                 </section>
 
                 <section id="token-management">
