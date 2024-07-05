@@ -42,7 +42,7 @@
   .container {
     display: flex;
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
     padding: 2rem;
   }
   

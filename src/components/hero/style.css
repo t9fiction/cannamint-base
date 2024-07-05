@@ -1,49 +1,49 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap'); */
 
 .btn {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
-    background: linear-gradient(to right, #8BC34A, #004D40);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 5px;
-    padding: 12px 20px; /* Increase padding for better button look */
-    border-radius: 12px; /* Make the button more rounded */
-    border: 2px solid #004D40; /* Add border to match the gradient */
-    cursor: pointer; /* Change cursor to pointer on hover */
-    text-align: center; /* Center the text inside the button */
-    display: inline-block; /* Ensure the button behaves like an inline-block element */
-    transition: background 1s, color 1s; /* Smooth transition for hover effect */
-  }
-  
-  .btn:hover {
-    background: linear-gradient(to right, #8BC34A, #004D40); /* Change background color on hover */
-    color: #ffffff; /* Change text color on hover */
-    -webkit-text-fill-color: unset; /* Reset the text fill color */
-  }
-  
-  /* sweetalert2-custom.css */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  background: linear-gradient(to right, #8BC34A, #004D40);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 5px;
+  padding: 12px 20px; /* Increase padding for better button look */
+  border-radius: 12px; /* Make the button more rounded */
+  border: 2px solid #004D40; /* Add border to match the gradient */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  text-align: center; /* Center the text inside the button */
+  display: inline-block; /* Ensure the button behaves like an inline-block element */
+  transition: background 1s, color 1s; /* Smooth transition for hover effect */
+}
+
+.btn:hover {
+  background: linear-gradient(to right, #8BC34A, #004D40); /* Change background color on hover */
+  color: #ffffff; /* Change text color on hover */
+  -webkit-text-fill-color: unset; /* Reset the text fill color */
+}
+
+/* sweetalert2-custom.css */
 .swal2-popup {
-  background-color: #0F121C; /* Background color */
-  color: #0CD658; /* Text color */
-  border: 1px solid #0CD658; /* Border color */
+background-color: #0F121C; /* Background color */
+color: #0CD658; /* Text color */
+border: 1px solid #0CD658; /* Border color */
 }
 
 .swal2-title {
-  color: #0CD658; /* Title color */
+color: #0CD658; /* Title color */
 }
 
 .swal2-html-container {
-  color: #0CD658; /* Content color */
+color: #0CD658; /* Content color */
 }
 
 .swal2-actions .swal2-confirm {
-  background-color: #0CD658; /* Confirm button background color */
-  color: #282c34; /* Confirm button text color */
+background-color: #0CD658; /* Confirm button background color */
+color: #282c34; /* Confirm button text color */
 }
 
 .swal2-actions .swal2-cancel {
-  background-color: #ff6b6b; /* Cancel button background color */
-  color: #282c34; /* Cancel button text color */
+background-color: #ff6b6b; /* Cancel button background color */
+color: #282c34; /* Cancel button text color */
 }
