@@ -11,6 +11,7 @@ import { client } from '@/app/client';
 import { ethers } from 'ethers';
 import { chainUsed, factoryContractABI, factoryContractADDRESS } from '@/utils/factoryContract/page';
 import Swal from 'sweetalert2';
+import { v4 as uuidv4 } from 'uuid';
 
 const baseURL = process.env.NEXT_PUBLIC_ALCHEMY_BASEURL_ID
 
@@ -86,6 +87,13 @@ export default function Hero() {
     }
   }, [activeAccount]);
 
+  useEffect(() => {
+    // Generate and store a unique ID for the user session
+    if (!localStorage.getItem('userSessionId')) {
+      localStorage.setItem('userSessionId', uuidv4());
+    }
+  }, []);
+
   const deployToken = async () => {
     if (activeAccount) {
       try {
@@ -113,11 +121,12 @@ export default function Hero() {
         }
 
         const tSupply = ethers.parseUnits(tokenData.tokenSupply, 18);
+        const userSessionId = localStorage.getItem('userSessionId') as string;
 
         const transaction = prepareContractCall({
           contract: contractFactory,
-          method: "function deployToken(string name, string symbol, uint256 totalSupply) payable",
-          params: [tokenData.name, tokenData.symbol, tSupply],
+          method: "function deployToken(string name, string symbol, uint256 totalSupply, string userSessionId) payable",
+          params: [tokenData.name, tokenData.symbol, tSupply, userSessionId],
           value: ethers.parseEther("0.03"), // 0.03 ETH
         });
 
@@ -131,7 +140,7 @@ export default function Hero() {
             console.error("Transaction error:", error);
             Swal.fire({
               title: 'Error!',
-              text: 'Check if you have enough Ethers',
+              text: 'Check for any missing field or wrong input',
               icon: 'error',
               confirmButtonText: 'OK',
               customClass: {
@@ -184,29 +193,34 @@ export default function Hero() {
     if (contractEthers && activeAccount) {
       console.log("Setting up event listener for TokenDeployed event.");
 
-      contractEthers.on("TokenDeployed", (tokenAddress, name, symbol, totalSupply) => {
+      contractEthers.on("TokenDeployed", (tokenAddress, name, symbol, totalSupply, userSessionId) => {
         console.log("TokenDeployed event detected");
         console.log("Token Name:", name);
         console.log("Token Symbol:", symbol);
         console.log("Total Supply:", totalSupply.toString());
         console.log("Contract address:", tokenAddress);
-        setContractAddress(tokenAddress);
 
-        Swal.close();
-        Swal.fire({
-          title: 'Success!',
-          text: 'Your token has been deployed.',
-          icon: 'success',
-          confirmButtonText: 'OK',
-          customClass: {
-            popup: 'swal2-popup',
-            title: 'swal2-title',
-            htmlContainer: 'swal2-html-container',
-            confirmButton: 'swal2-confirm',
-            cancelButton: 'swal2-cancel'
-          }
-        });
-        setIsFormDisabled(false);
+        // Check if the userSessionId matches the one in localStorage
+        const localSessionId = localStorage.getItem('userSessionId');
+        if (userSessionId === localSessionId) {
+          setContractAddress(tokenAddress);
+
+          Swal.close();
+          Swal.fire({
+            title: 'Success!',
+            text: 'Your token has been deployed.',
+            icon: 'success',
+            confirmButtonText: 'OK',
+            customClass: {
+              popup: 'swal2-popup',
+              title: 'swal2-title',
+              htmlContainer: 'swal2-html-container',
+              confirmButton: 'swal2-confirm',
+              cancelButton: 'swal2-cancel'
+            }
+          });
+          setIsFormDisabled(false);
+        }
       });
 
       return () => {
@@ -259,7 +273,7 @@ export default function Hero() {
             className={styles.input}
             ref={tokenSymbolRef}
             onKeyPress={(event) => {
-              if (!/[a-zA-Z0-9]/.test(event.key)) {
+              if (!/[a-zA-Z0-9 '.]/.test(event.key)) {
                 event.preventDefault();
               }
             }}
@@ -273,10 +287,10 @@ export default function Hero() {
             type="text"
             id="tokenSupply"
             name="tokenSupply"
-            placeholder="Token Supply"
-            maxLength={16}
-            inputMode="numeric"
-            pattern="[0-9]*"
+            placeholder="Total token supply"
+            maxLength={20}
+            required
+            className={styles.input}
             ref={tokenSupplyRef}
             onKeyPress={(event) => {
               if (!/[0-9]/.test(event.key)) {
@@ -286,9 +300,6 @@ export default function Hero() {
             onPaste={(event) => {
               event.preventDefault();
             }}
-            required
-            className={styles.input}
-            min="1" max="100000000000000000000"
             onChange={handleInputChange}
             disabled={isFormDisabled}
           />
