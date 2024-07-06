@@ -11,6 +11,7 @@ import { ethers } from 'ethers';
 import { chainUsed, factoryContractABI, factoryContractADDRESS } from '@/utils/factoryContract/page';
 import Swal from 'sweetalert2';
 import { v4 as uuidv4 } from 'uuid';
+import Link from 'next/link';
 
 const baseURL = process.env.NEXT_PUBLIC_ALCHEMY_BASEURL_ID
 
@@ -323,7 +324,7 @@ export default function Hero() {
       )}
 
       <p className={`${styles.textinfo2}`}>
-        Total Deployment Fee: 0.03 Base Eth + 1% supply fee. <br />Read the <a href="/docs" className={styles.docsLink}>docs</a> to learn more
+        Total Deployment Fee: 0.03 Base Eth + 1% supply fee. <br />Read the <Link href="/docs" className={styles.docsLink}>docs</Link> to learn more
       </p>
     </main>
   );
