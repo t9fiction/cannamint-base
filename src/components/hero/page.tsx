@@ -202,7 +202,7 @@ export default function Hero() {
 
         // Check if the userSessionId matches the one in localStorage
         const localSessionId = localStorage.getItem('userSessionId');
-        // if (userSessionId === localSessionId) {
+        if (tokenData.name == name) {
           setContractAddress(tokenAddress);
 
           Swal.close();
@@ -220,7 +220,7 @@ export default function Hero() {
             }
           });
           setIsFormDisabled(false);
-        // }
+        }
       });
 
       return () => {
