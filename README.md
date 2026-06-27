@@ -1,59 +1,81 @@
+# CannaMint Base
 
-![tw-banner](https://github.com/thirdweb-example/next-starter/assets/57885104/20c8ce3b-4e55-4f10-ae03-2fe4743a5ee8)
+A lightweight ERC20 token creation platform — the base version of CannaMint without DEX integration. Deploy custom tokens on EVM-compatible chains through a simple web interface.
 
-# thirdweb-next-starter
+## Overview
 
-Starter template to build an onchain react native app with [thirdweb](https://thirdweb.com/) and [next](https://nextjs.org/).
+CannaMint Base lets users connect their wallet, fill in token details, and deploy a fully functional ERC20 token in minutes. The platform handles smart contract deployment via thirdweb SDK, giving users immediate ownership of their token contract.
 
-## Installation
+## Features
 
-Install the template using [thirdweb create](https://portal.thirdweb.com/cli/create)
+- **Wallet Connection** — MetaMask, WalletConnect, or any Web3Modal-compatible wallet
+- **Token Deployment** — Create ERC20 tokens with custom name, symbol, supply, and decimals
+- **Real-time Feedback** — SweetAlert2 notifications for transaction status
+- **Responsive Design** — Tailwind CSS, mobile-friendly
 
-```bash
-  npx thirdweb create app --next
-```
+## Tech Stack
 
-## Environment Variables
+| Category | Technologies |
+|---|---|
+| Framework | Next.js 14 (App Router), TypeScript |
+| Blockchain | thirdweb SDK v5, ethers |
+| Wallet | @web3modal |
+| Styling | Tailwind CSS |
+| UI | sweetalert2 |
 
-To run this project, you will need to add the following environment variables to your .env file:
+## Getting Started
 
-`CLIENT_ID`
+### Prerequisites
 
-To learn how to create a client ID, refer to the [client documentation](https://portal.thirdweb.com/typescript/v5/client). 
+- Node.js 18+ and npm
+- A thirdweb client ID from [thirdweb.com/dashboard](https://thirdweb.com/dashboard)
+- A Web3Modal project ID from [cloud.walletconnect.com](https://cloud.walletconnect.com)
 
-## Run locally
-
-Install dependencies
-
-```bash
-yarn
-```
-
-Start development server
-
-```bash
-yarn dev
-```
-
-Create a production build
+### Installation
 
 ```bash
-yarn build
+git clone https://github.com/t9fiction/cannamint-base.git
+cd cannamint-base
+npm install
 ```
 
-Preview the production build
+### Environment Variables
+
+Create `.env.local`:
+
+```env
+NEXT_PUBLIC_THIRDWEB_CLIENT_ID=your_thirdweb_client_id
+NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_project_id
+```
+
+### Development
 
 ```bash
-yarn start
+npm run dev
 ```
 
-## Resources
+Open [http://localhost:3000](http://localhost:3000).
 
-- [Documentation](https://portal.thirdweb.com/typescript/v5)
-- [Templates](https://thirdweb.com/templates)
-- [YouTube](https://www.youtube.com/c/thirdweb)
-- [Blog](https://blog.thirdweb.com)
+## Usage
 
-## Need help?
+1. Connect your wallet
+2. Enter token name, symbol, total supply, and decimals
+3. Confirm and deploy
+4. The token contract address is displayed on success
 
-For help or feedback, please [visit our support site](https://thirdweb.com/support)
+## Project Structure
+
+```
+cannamint-base/
+├── src/
+│   ├── app/           # Next.js App Router
+│   ├── components/    # React components
+│   ├── lib/           # SDK configuration
+│   └── providers/     # Web3 providers
+├── public/
+└── package.json
+```
+
+## License
+
+MIT
